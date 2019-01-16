@@ -1,0 +1,46 @@
+[
+  {
+    "name": "development",
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "123456",
+    "database": "graphql",
+    "synchronize": true,
+    "logging": true,
+    "entities": ["src/modules/**/entities/*.ts"],
+    "migrations": ["src/migrations/**/*.ts"],
+    "subscribers": ["src/subscribers/**/*.ts"],
+    "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+    },
+    "cache": {
+      "duration": 30000
+    }
+  },
+  {
+    "name": "test",
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "123456",
+    "database": "graphql",
+    "synchronize": true,
+    "logging": true,
+    "entities": ["src/modules/**/entities/*.ts"],
+    "migrations": ["src/migrations/**/*.ts"],
+    "subscribers": ["src/subscribers/**/*.ts"],
+    "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+    },
+    "cache": {
+      "duration": 30000
+    }
+  }
+]
