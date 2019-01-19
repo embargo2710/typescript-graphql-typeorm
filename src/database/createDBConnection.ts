@@ -1,11 +1,8 @@
 import { createConnection, getConnectionOptions } from "typeorm"
-import { NamingStrategy } from "./namingStrategy"
 
-export const createDBConnection = async environment => {
-    const connectionOptions = await getConnectionOptions(environment)
+export const createDBConnection = async () => {
+    const connectionOptions = await getConnectionOptions()
     return createConnection({
         ...connectionOptions,
-        namingStrategy: new NamingStrategy(),
-        name: 'default',
     })
 }

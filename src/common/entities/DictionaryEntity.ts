@@ -1,17 +1,16 @@
-import { IsEnum, Length } from "class-validator"
 import { Field, ID, InterfaceType } from "type-graphql"
-import { BaseEntity, Column, CreateDateColumn, Index, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
+import { BaseEntity, Column, CreateDateColumn, Index, PrimaryGeneratedColumn, Unique, UpdateDateColumn } from "typeorm"
 import { StatusEnum } from './StatusEnum'
 
 @InterfaceType()
+@Unique(['name'])
 export abstract class DictionaryEntity extends BaseEntity {
     @Field(() => ID)
     @PrimaryGeneratedColumn()
-    id: number
+    readonly id: number
 
     @Field()
-    @Length(1, 100)
-    @Column("varchar", { length: 100, unique: true, nullable: false })
+    @Column("varchar", { length: 100, nullable: false })
     @Index({ unique: true })
     name: string
 
@@ -24,7 +23,6 @@ export abstract class DictionaryEntity extends BaseEntity {
     updatedAt: Date
 
     @Field()
-    @IsEnum(StatusEnum)
     @Column("enum", { enum: StatusEnum, default: StatusEnum.Active })
     status: StatusEnum
 }

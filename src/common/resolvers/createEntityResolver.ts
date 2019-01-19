@@ -13,7 +13,7 @@ export function createEntityResolver<Entity extends BaseEntity>(
 
     @Resolver(() => ResourceCls, { isAbstract: true })
     @Service()
-    abstract class EntityResolver implements EntityResolverInterface<Entity> {
+    abstract class AbstractEntityResolver implements EntityResolverInterface<Entity> {
         @InjectRepository(ResourceCls)
         private repository: Repository<Entity>
 
@@ -33,5 +33,5 @@ export function createEntityResolver<Entity extends BaseEntity>(
         }
     }
 
-    return EntityResolver as any
+    return AbstractEntityResolver as any
 }

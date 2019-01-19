@@ -1,4 +1,3 @@
-import { IsEnum, Length } from "class-validator"
 import { Field, ID, ObjectType } from 'type-graphql'
 import {
     BaseEntity,
@@ -23,24 +22,31 @@ import { Location } from "../modules/location/entities/Location"
 export class Travel extends BaseEntity {
     @Field(() => ID)
     @PrimaryGeneratedColumn()
-    id: number
+    readonly id: number
 
-    @Field(() => Date)
+    @Field()
     @CreateDateColumn()
     createdAt: Date
 
+    @Field()
     @UpdateDateColumn()
     updatedAt: Date
 
-    @Length(1, 100)
+    @Field()
     @Column("varchar", { length: 100, nullable: false })
     @Index()
     name: string
 
+    @Field()
     @Column("text")
     description: string
 
-    @IsEnum(StatusEnum)
+    @Column()
+    startedAt: Date
+
+    @Column()
+    finishedAt: Date
+
     @Column("enum", { enum: StatusEnum, default: StatusEnum.Active })
     status: StatusEnum
 

@@ -3,7 +3,7 @@ import * as Express from "express"
 import * as glob from "glob"
 import "reflect-metadata"
 import * as TypeGraphQL from "type-graphql"
-import { buildSchema } from "type-graphql"
+import { buildSchema, formatArgumentValidationError } from "type-graphql"
 import { Container } from "typedi"
 import * as TypeORM from "typeorm"
 import { createDBConnection } from './database/createDBConnection'
@@ -23,6 +23,7 @@ const startServer = async () => {
 
         const apolloServer = new ApolloServer({
             schema,
+            formatError: formatArgumentValidationError,
             tracing: isDev(),
             debug: isDev(),
             cacheControl: true,
@@ -30,7 +31,7 @@ const startServer = async () => {
 
         const app = Express()
 
-        await createDBConnection(environment)
+        await createDBConnection()
 
         apolloServer.applyMiddleware({ app })
 

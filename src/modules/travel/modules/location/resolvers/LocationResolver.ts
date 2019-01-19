@@ -1,5 +1,5 @@
 import { Resolver } from "type-graphql"
-import { createEntityResolver } from '../../../../../common/resolvers/EntityResolver'
+import { createEntityResolver } from '../../../../../common/resolvers/createEntityResolver'
 import { Location } from '../entities/Location'
 
 const EntityResolver = createEntityResolver(Location)
