@@ -41,9 +41,9 @@ module.exports = [
     database: 'graphql',
     synchronize: true,
     logging: true,
-    entities: ['modules/**/entities/*.js'],
-    subscribers: ['modules/**/subscribers/*.js'],
-    migrations: ['migrations/**/*.js'],
+    entities: ['dist/modules/**/entities/*.js'],
+    subscribers: ['dist/modules/**/subscribers/*.js'],
+    migrations: ['dist/migrations/**/*.js'],
     namingStrategy: new NamingStrategy(),
     migrationsRun: true,
     cache: {
