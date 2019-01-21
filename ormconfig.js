@@ -3,7 +3,7 @@ let NamingStrategy;
 if (!process.env.NODE_ENV) {
   NamingStrategy = require('./src/database/NamingStrategy').NamingStrategy
 } else {
-  NamingStrategy = require('./database/NamingStrategy')
+  NamingStrategy = require('./database/NamingStrategy').NamingStrategy
 }
 
 module.exports = [
@@ -34,10 +34,10 @@ module.exports = [
   {
     name: 'production',
     type: 'mysql',
-    host: 'localhost',
+    host: 'graphql.cpi34eitgeyn.eu-central-1.rds.amazonaws.com',
     port: 3306,
-    username: 'root',
-    password: '123456',
+    username: 'graphql',
+    password: 'graphql123',
     database: 'graphql',
     synchronize: true,
     logging: true,
