@@ -1,4 +1,9 @@
-const NamingStrategy = require('./src/database/NamingStrategy').NamingStrategy
+let NamingStrategy;
+if (!process.env.NODE_ENV) {
+  NamingStrategy = require('./src/database/NamingStrategy').NamingStrategy
+} else {
+  NamingStrategy = require('./database/NamingStrategy').NamingStrategy
+}
 
 module.exports = [
   {
