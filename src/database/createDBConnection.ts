@@ -1,7 +1,7 @@
 import { createConnection, getConnectionOptions } from "typeorm"
 
-export const createDBConnection = async () => {
-    const connectionOptions = await getConnectionOptions()
+export const createDBConnection = async env => {
+    const connectionOptions = await getConnectionOptions(env)
     return createConnection({
         ...connectionOptions,
     })

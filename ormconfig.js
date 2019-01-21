@@ -2,7 +2,7 @@ const NamingStrategy = require('./src/database/NamingStrategy').NamingStrategy
 
 module.exports = [
   {
-    name: 'default',
+    name: 'development',
     type: 'mysql',
     host: 'localhost',
     port: 3306,
@@ -23,6 +23,30 @@ module.exports = [
       entitiesDir: 'src/entity',
       migrationsDir: 'src/migration',
       subscribersDir: 'src/subscriber',
+    },
+  },
+  {
+    name: 'production',
+    type: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    username: 'root',
+    password: '123456',
+    database: 'graphql',
+    synchronize: true,
+    logging: true,
+    entities: ['modules/**/entities/*.js'],
+    subscribers: ['modules/**/subscribers/*.js'],
+    migrations: ['migrations/**/*.js'],
+    namingStrategy: new NamingStrategy(),
+    migrationsRun: true,
+    cache: {
+      duration: 300000,
+    },
+    cli: {
+      entitiesDir: 'entity',
+      migrationsDir: 'migration',
+      subscribersDir: 'subscriber',
     },
   }
 ]

@@ -31,7 +31,7 @@ const startServer = async () => {
 
         const app = Express()
 
-        await createDBConnection()
+        await createDBConnection(environment)
 
         apolloServer.applyMiddleware({ app })
 
