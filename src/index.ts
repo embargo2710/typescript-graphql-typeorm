@@ -18,7 +18,7 @@ TypeORM.useContainer(Container)
 const startServer = async () => {
     try {
         const schema = await buildSchema({
-            resolvers: glob.sync(`${__dirname}/modules/**/resolvers/*.ts`),
+            resolvers: glob.sync(`${__dirname}/modules/**/resolvers/*.{ts,js}`),
         })
 
         const apolloServer = new ApolloServer({
