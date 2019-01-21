@@ -1,9 +1,8 @@
 import { Field, ID, InterfaceType } from "type-graphql"
-import { BaseEntity, Column, CreateDateColumn, Index, PrimaryGeneratedColumn, Unique, UpdateDateColumn } from "typeorm"
+import { BaseEntity, Column, CreateDateColumn, Index, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
 import { StatusEnum } from './StatusEnum'
 
 @InterfaceType()
-@Unique(['name'])
 export abstract class DictionaryEntity extends BaseEntity {
     @Field(() => ID)
     @PrimaryGeneratedColumn()

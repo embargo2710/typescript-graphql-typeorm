@@ -45,7 +45,7 @@ module.exports = [
     subscribers: ['dist/modules/**/subscribers/*.js'],
     migrations: ['dist/migrations/**/*.js'],
     namingStrategy: new NamingStrategy(),
-    migrationsRun: true,
+    migrationsRun: false,
     cache: {
       duration: 300000,
     },
