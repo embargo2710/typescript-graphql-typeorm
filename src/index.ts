@@ -27,6 +27,8 @@ const startServer = async () => {
             tracing: isDev(),
             debug: isDev(),
             cacheControl: true,
+            playground: true,
+            introspection: true,
         })
 
         const app = Express()
