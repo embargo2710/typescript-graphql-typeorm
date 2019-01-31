@@ -10,7 +10,7 @@ import { createDBConnection } from './database/createDBConnection'
 
 const environment = process.env.NODE_ENV || 'development'
 
-const isDev = () => environment === 'development'
+const isDev = () => true
 
 TypeGraphQL.useContainer(Container)
 TypeORM.useContainer(Container)
